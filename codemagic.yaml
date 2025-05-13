@@ -1,15 +1,15 @@
 workflows:
-  ios-simulator-release:
-    name: iOS Simulator Release Build
+  ios-simulator-debug:
+    name: iOS Simulator Debug Build
     environment:
       flutter: stable
       xcode: latest
     scripts:
       - name: Install dependencies
         script: flutter pub get
-      - name: Build iOS release for simulator
+      - name: Build iOS for simulator (debug mode)
         script: |
-          flutter build ios --simulator --release
+          flutter build ios --simulator
           mkdir -p build/ios/ipa
           zip -r build/ios/ipa/Runner.app.zip build/ios/iphonesimulator/Runner.app
     artifacts:
